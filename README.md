@@ -46,3 +46,4 @@ Tap the app's Start button to begin each workout. That user tap allows the brows
 - Low BEEP: exercise ends
 
 For best results, keep phone media volume audible.
+Workout App deployed with GitHub pages
