@@ -1,0 +1,63 @@
+* { box-sizing: border-box; }
+:root {
+  color-scheme: dark;
+  --bg: #0b0f17;
+  --panel: #141b26;
+  --panel-2: #1b2432;
+  --text: #f4f7fb;
+  --muted: #9aa8bc;
+  --border: #2b3647;
+  --accent: #7dd3fc;
+  --accent-text: #07131a;
+  --danger: #fca5a5;
+}
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+button, input { font: inherit; }
+button { min-height: 46px; border-radius: 12px; border: 1px solid var(--border); padding: 10px 14px; cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+input { width: 100%; min-height: 48px; border-radius: 12px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); padding: 12px; font-size: 16px; }
+label span { display: block; font-size: .9rem; margin: 0 0 7px; color: var(--muted); }
+.app-shell { width: min(760px, 100%); margin: 0 auto; }
+.topbar, .section-heading, .actions, .player-actions, .workout-card-actions, .exercise-controls { display: flex; align-items: center; gap: 10px; }
+.topbar, .section-heading { justify-content: space-between; }
+.topbar { margin-bottom: 22px; }
+h1, h2, p { margin-top: 0; }
+h1 { font-size: clamp(1.6rem, 7vw, 2.5rem); margin-bottom: 0; }
+h2 { margin-bottom: 4px; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: .75rem; font-weight: 800; margin-bottom: 6px; }
+.muted, .section-heading p { color: var(--muted); }
+.panel { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 16px; }
+.hidden { display: none !important; }
+.workout-list, .exercise-list { display: grid; gap: 12px; }
+.workout-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+.workout-card h3 { margin: 0 0 4px; }
+.workout-card p { color: var(--muted); margin-bottom: 12px; }
+.primary { background: var(--accent); color: var(--accent-text); border-color: transparent; font-weight: 800; }
+.secondary { background: var(--panel-2); color: var(--text); }
+.danger { color: var(--danger); }
+.big { padding: 14px 24px; min-height: 54px; }
+#editorView label { display: block; margin-bottom: 14px; }
+.compact { margin-top: 20px; }
+.exercise-row { background: var(--panel-2); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: grid; gap: 10px; }
+.exercise-grid { display: grid; grid-template-columns: 1fr 110px; gap: 10px; }
+.exercise-controls { flex-wrap: wrap; }
+.actions, .player-actions, .workout-card-actions { flex-wrap: wrap; }
+.message { margin-top: 12px; color: var(--danger); min-height: 1.2em; }
+.player { text-align: center; padding: 24px 16px; }
+.player h2 { font-size: clamp(1.8rem, 8vw, 3rem); overflow-wrap: anywhere; }
+.timer { font-size: clamp(4rem, 20vw, 7rem); line-height: 1; font-weight: 800; font-variant-numeric: tabular-nums; margin: 22px 0 16px; }
+.progress-track { height: 12px; border-radius: 999px; overflow: hidden; background: var(--panel-2); }
+.progress-bar { height: 100%; width: 0; background: var(--accent); transition: width .15s linear; }
+.player-actions { justify-content: center; margin-top: 18px; }
+.legend { margin: 18px 0 0; color: var(--muted); font-size: .9rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.empty { text-align: center; padding: 28px 18px; color: var(--muted); border: 1px dashed var(--border); border-radius: 16px; }
+@media (max-width: 520px) {
+  .topbar { align-items: flex-start; }
+  .topbar > button { flex: 0 0 auto; }
+  .exercise-grid { grid-template-columns: 1fr 92px; }
+  .workout-card-actions button { flex: 1 1 44%; }
+  .player-actions button { flex: 1 1 42%; }
+  .player-actions .big { flex-basis: 100%; }
+}

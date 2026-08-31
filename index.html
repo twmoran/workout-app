@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Workout Coach" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Workout Interval Coach</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Personal workout timer</p>
+        <h1>Workout Interval Coach</h1>
+      </div>
+      <button id="newWorkoutBtn" class="secondary">New workout</button>
+    </header>
+
+    <section id="libraryView" class="view">
+      <div class="section-heading">
+        <div>
+          <h2>Your workouts</h2>
+          <p>Saved only on this device.</p>
+        </div>
+      </div>
+      <div id="workoutList" class="workout-list"></div>
+    </section>
+
+    <section id="editorView" class="view hidden">
+      <div class="panel">
+        <label>
+          <span>Workout name</span>
+          <input id="workoutName" maxlength="60" />
+        </label>
+
+        <label>
+          <span>Rest between exercises (seconds)</span>
+          <input id="restSeconds" type="number" min="0" max="600" inputmode="numeric" />
+        </label>
+
+        <div class="section-heading compact">
+          <div>
+            <h2>Exercises</h2>
+            <p>Tap the arrows to reorder.</p>
+          </div>
+          <button id="addExerciseBtn" class="secondary">+ Add</button>
+        </div>
+
+        <div id="exerciseRows" class="exercise-list"></div>
+
+        <div class="actions">
+          <button id="saveWorkoutBtn" class="primary">Save workout</button>
+          <button id="cancelEditBtn" class="secondary">Cancel</button>
+        </div>
+        <p id="editorMessage" class="message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="playerView" class="view hidden">
+      <div class="player panel">
+        <p id="phaseLabel" class="eyebrow">Ready</p>
+        <h2 id="currentExercise">Press Start when you're ready</h2>
+        <p id="nextExercise" class="muted"></p>
+
+        <div id="timer" class="timer">0:00</div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <p id="progressText" class="muted"></p>
+
+        <div class="player-actions">
+          <button id="startBtn" class="primary big">Start</button>
+          <button id="pauseBtn" class="secondary" disabled>Pause</button>
+          <button id="skipBtn" class="secondary" disabled>Skip</button>
+          <button id="stopBtn" class="secondary" disabled>Stop</button>
+        </div>
+
+        <p class="legend">High BEEP = GO · Low BEEP = STOP</p>
+        <div id="liveRegion" class="sr-only" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
